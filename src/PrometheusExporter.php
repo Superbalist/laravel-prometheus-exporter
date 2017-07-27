@@ -70,7 +70,7 @@ class PrometheusExporter
         if (!isset($this->collectors[$name])) {
             $this->collectors[$name] = $collector;
 
-            $collector->registerMetrics($this->prometheus);
+            $collector->registerMetrics($this);
         }
     }
 
