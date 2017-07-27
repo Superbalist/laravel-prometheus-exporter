@@ -14,7 +14,7 @@ class MetricsController extends Controller
     protected $responseFactory;
 
     /**
-     * @var $prometheusExporter
+     * @var PrometheusExporter
      */
     protected $prometheusExporter;
 

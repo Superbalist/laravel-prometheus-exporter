@@ -156,7 +156,7 @@ class PrometheusExporter
      * Return a gauge.
      *
      * @param string $name
-     * @return \Prometheus\Counter
+     * @return \Prometheus\Gauge
      */
     public function getGauge($name)
     {
