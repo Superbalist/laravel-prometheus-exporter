@@ -28,7 +28,7 @@ Register the facade in app.php
 ```php
 'aliases' => [
     // ...
-    'PubSub' => Superbalist\LaravelPrometheusExporter\PrometheusFacade::class,
+    'Prometheus' => Superbalist\LaravelPrometheusExporter\PrometheusFacade::class,
 ]
 ```
 
