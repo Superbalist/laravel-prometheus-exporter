@@ -33,7 +33,7 @@ class PrometheusExporter
         $this->prometheus = $prometheus;
 
         foreach ($collectors as $collector) {
-            /** @var CollectorInterface $collector */
+            /* @var CollectorInterface $collector */
             $this->registerCollector($collector);
         }
     }
@@ -88,6 +88,7 @@ class PrometheusExporter
      * Return a collector by name.
      *
      * @param string $name
+     *
      * @return CollectorInterface
      */
     public function getCollector($name)
@@ -105,7 +106,9 @@ class PrometheusExporter
      * @param string $name
      * @param string $help
      * @param array $labels
+     *
      * @return \Prometheus\Counter
+     *
      * @see https://prometheus.io/docs/concepts/metric_types/#counter
      */
     public function registerCounter($name, $help, $labels = [])
@@ -117,6 +120,7 @@ class PrometheusExporter
      * Return a counter.
      *
      * @param string $name
+     *
      * @return \Prometheus\Counter
      */
     public function getCounter($name)
@@ -130,7 +134,9 @@ class PrometheusExporter
      * @param string $name
      * @param string $help
      * @param array $labels
+     *
      * @return \Prometheus\Counter
+     *
      * @see https://prometheus.io/docs/concepts/metric_types/#counter
      */
     public function getOrRegisterCounter($name, $help, $labels = [])
@@ -144,7 +150,9 @@ class PrometheusExporter
      * @param string $name
      * @param string $help
      * @param array $labels
+     *
      * @return \Prometheus\Gauge
+     *
      * @see https://prometheus.io/docs/concepts/metric_types/#gauge
      */
     public function registerGauge($name, $help, $labels = [])
@@ -156,6 +164,7 @@ class PrometheusExporter
      * Return a gauge.
      *
      * @param string $name
+     *
      * @return \Prometheus\Gauge
      */
     public function getGauge($name)
@@ -169,7 +178,9 @@ class PrometheusExporter
      * @param string $name
      * @param string $help
      * @param array $labels
+     *
      * @return \Prometheus\Gauge
+     *
      * @see https://prometheus.io/docs/concepts/metric_types/#gauge
      */
     public function getOrRegisterGauge($name, $help, $labels = [])
@@ -184,7 +195,9 @@ class PrometheusExporter
      * @param string $help
      * @param array $labels
      * @param array $buckets
+     *
      * @return \Prometheus\Histogram
+     *
      * @see https://prometheus.io/docs/concepts/metric_types/#histogram
      */
     public function registerHistogram($name, $help, $labels = [], $buckets = null)
@@ -196,6 +209,7 @@ class PrometheusExporter
      * Return a histogram.
      *
      * @param string $name
+     *
      * @return \Prometheus\Histogram
      */
     public function getHistogram($name)
@@ -210,7 +224,9 @@ class PrometheusExporter
      * @param string $help
      * @param array $labels
      * @param array $buckets
+     *
      * @return \Prometheus\Histogram
+     *
      * @see https://prometheus.io/docs/concepts/metric_types/#histogram
      */
     public function getOrRegisterHistogram($name, $help, $labels = [], $buckets = null)
@@ -226,7 +242,7 @@ class PrometheusExporter
     public function export()
     {
         foreach ($this->collectors as $collector) {
-            /** @var CollectorInterface $collector */
+            /* @var CollectorInterface $collector */
             $collector->collect();
         }
 

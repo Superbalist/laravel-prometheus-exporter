@@ -15,6 +15,7 @@ class StorageAdapterFactory
      *
      * @param string $driver
      * @param array $config
+     *
      * @return Adapter
      */
     public function make($driver, array $config = [])
@@ -35,6 +36,7 @@ class StorageAdapterFactory
      * Factory a redis storage adapter.
      *
      * @param array $config
+     *
      * @return Redis
      */
     protected function makeRedisAdapter(array $config)

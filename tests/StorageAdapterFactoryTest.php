@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Mockery;
 use PHPUnit\Framework\TestCase;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;

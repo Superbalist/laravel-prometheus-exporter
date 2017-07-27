@@ -31,7 +31,7 @@ class MetricsControllerTest extends TestCase
             ->withArgs([
                 "\n",
                 200,
-                ['Content-Type' => RenderTextFormat::MIME_TYPE]
+                ['Content-Type' => RenderTextFormat::MIME_TYPE],
             ])
             ->andReturn($response);
 
