@@ -2,7 +2,6 @@
 
 namespace Superbalist\LaravelPrometheusExporter;
 
-use Illuminate\Contracts\Container\Container;
 use InvalidArgumentException;
 use Prometheus\Storage\Adapter;
 use Prometheus\Storage\APC;
@@ -11,19 +10,6 @@ use Prometheus\Storage\Redis;
 
 class StorageAdapterFactory
 {
-    /**
-     * @var Container
-     */
-    protected $container;
-
-    /**
-     * @param Container $container
-     */
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
-
     /**
      * Factory a storage adapter.
      *

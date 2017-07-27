@@ -2,22 +2,46 @@
 
 namespace Superbalist\LaravelPrometheusExporter;
 
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Routing\Controller;
 use Prometheus\RenderTextFormat;
 
 class MetricsController extends Controller
 {
     /**
+     * @var ResponseFactory
+     */
+    protected $responseFactory;
+
+    /**
      * @var $prometheusExporter
      */
     protected $prometheusExporter;
 
     /**
+     * @param ResponseFactory $responseFactory
      * @param PrometheusExporter $prometheusExporter
      */
-    public function __construct(PrometheusExporter $prometheusExporter)
+    public function __construct(ResponseFactory $responseFactory, PrometheusExporter $prometheusExporter)
     {
+        $this->responseFactory = $responseFactory;
         $this->prometheusExporter = $prometheusExporter;
+    }
+
+    /**
+     * @return ResponseFactory
+     */
+    public function getResponseFactory()
+    {
+        return $this->responseFactory;
+    }
+
+    /**
+     * @return PrometheusExporter
+     */
+    public function getPrometheusExporter()
+    {
+        return $this->prometheusExporter;
     }
 
     /**
@@ -35,7 +59,6 @@ class MetricsController extends Controller
         $renderer = new RenderTextFormat();
         $result = $renderer->render($metrics);
 
-        return response($result)
-            ->header('Content-Type', RenderTextFormat::MIME_TYPE);
+        return $this->responseFactory->make($result, 200, ['Content-Type' => RenderTextFormat::MIME_TYPE]);
     }
 }

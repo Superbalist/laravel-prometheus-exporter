@@ -160,7 +160,7 @@ class PrometheusExporter
      */
     public function getGauge($name)
     {
-        return $this->prometheus->getCounter($this->namespace, $name);
+        return $this->prometheus->getGauge($this->namespace, $name);
     }
 
     /**

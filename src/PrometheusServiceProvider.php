@@ -42,8 +42,8 @@ class PrometheusServiceProvider extends ServiceProvider
         });
         $this->app->alias(PrometheusExporter::class, 'prometheus');
 
-        $this->app->bind('prometheus.storage_adapter_factory', function ($app) {
-            return new StorageAdapterFactory($app);
+        $this->app->bind('prometheus.storage_adapter_factory', function () {
+            return new StorageAdapterFactory();
         });
 
         $this->app->bind(Adapter::class, function ($app) {

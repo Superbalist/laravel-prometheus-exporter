@@ -150,7 +150,7 @@ $counter = $exporter->getGauge('users_online_total');
 // create a histogram
 $histogram = $exporter->registerHistogram(
     'response_time_seconds',
-    'The response time of a request',
+    'The response time of a request.',
     [],
     [0.1, 0.25, 0.5, 0.75, 1.0, 2.5, 5.0, 7.5, 10.0]
 );
@@ -161,7 +161,7 @@ $histogram->obeserve(5.0);
 // create a histogram (with labels)
 $histogram = $exporter->registerHistogram(
     'response_time_seconds',
-    'The response time of a request',
+    'The response time of a request.',
     ['request_type'],
     [0.1, 0.25, 0.5, 0.75, 1.0, 2.5, 5.0, 7.5, 10.0]
 );
