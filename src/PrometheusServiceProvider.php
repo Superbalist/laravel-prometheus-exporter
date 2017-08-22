@@ -49,7 +49,7 @@ class PrometheusServiceProvider extends ServiceProvider
         $this->app->bind(Adapter::class, function ($app) {
             $factory = $app['prometheus.storage_adapter_factory']; /** @var StorageAdapterFactory $factory */
             $driver = config('prometheus.storage_adapter');
-            $configs = config('storage_adapters');
+            $configs = config('prometheus.storage_adapters');
             $config = array_get($configs, $driver, []);
             return $factory->make($driver, $config);
         });
