@@ -41,6 +41,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Metrics Route Name
+    |--------------------------------------------------------------------------
+    |
+    | Route Parh name aliase.
+    |
+    | This is only applicable if metrics_route_enabled is set to true.
+    |
+    */
+
+    'metrics_route_name' => env('PROMETHEUS_METRICS_ROUTE_NAME', 'metrics'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Metrics Route Middleware
     |--------------------------------------------------------------------------
     |

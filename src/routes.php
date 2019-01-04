@@ -1,9 +1,15 @@
 <?php
 
+/** @var \Illuminate\Routing\Route $route */
 $route = Route::get(
     config('prometheus.metrics_route_path'),
     \Superbalist\LaravelPrometheusExporter\MetricsController::class . '@getMetrics'
-)->name('metrics'); /** @var \Illuminate\Routing\Route $route */
+);
+
+if ($name = config('prometheus.metrics_route_name')) {
+    $route->name($name);
+}
+
 $middleware = config('prometheus.metrics_route_middleware');
 
 if ($middleware) {
