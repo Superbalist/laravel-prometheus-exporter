@@ -1,5 +1,5 @@
 {
-  "name": "superbalist/laravel4-prometheus-exporter",
+  "name": "bertuss/laravel4-prometheus-exporter",
   "description": "A prometheus exporter for Laravel",
   "license": "MIT",
   "authors": [
