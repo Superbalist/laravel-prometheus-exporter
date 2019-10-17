@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2019-10-17
+
+* Enable Laravel 6.0 compatability
+
 ## 1.0.3 - 2019-02-11
 
 * Enable package discovery for laravel 5.5+ 
