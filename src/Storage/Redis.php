@@ -1,6 +1,6 @@
 <?php
 
-namespace Superbalist\LaravelPrometheusExporter;
+namespace Superbalist\LaravelPrometheusExporter\Storage;
 
 use Prometheus\Storage\Adapter;
 use Prometheus\Counter;
