@@ -99,6 +99,7 @@ return [
             'read_timeout' => 10,
             'persistent_connections' => false,
             'prefix' => env('PROMETHEUS_REDIS_PREFIX', 'PROMETHEUS_'),
+            'database'  =>  env('PROMETHEUS_REDIS_DATABASE', 0)
         ],
 
     ],

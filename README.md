@@ -48,6 +48,7 @@ PROMETHEUS_STORAGE_ADAPTER=memory
 REDIS_HOST=localhost
 REDIS_PORT=6379
 PROMETHEUS_REDIS_PREFIX=PROMETHEUS_
+PROMETHEUS_REDIS_DATABASE=0
 ```
 
 To customize the configuration file, publish the package configuration using Artisan.
