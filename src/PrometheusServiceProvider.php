@@ -15,7 +15,6 @@ class PrometheusServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishFiles();
-        $this->mergeConfigs();
         $this->loadRoutes();
 
         if (config('prometheus.metrics_route_enabled')) {
@@ -27,14 +26,6 @@ class PrometheusServiceProvider extends ServiceProvider
             $collector = $this->app->make($class);
             $exporter->registerCollector($collector);
         }
-    }
-
-    /**
-     * Merge configs.
-     */
-    protected function mergeConfigs()
-    {
-        $this->mergeConfigFrom(__DIR__ . '/../config/prometheus.php', 'prometheus');
     }
 
     /**
@@ -60,6 +51,8 @@ class PrometheusServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/../config/prometheus.php', 'prometheus');
+
         $this->app->singleton(PrometheusExporter::class, function ($app) {
             $adapter = $app['prometheus.storage_adapter'];
             $prometheus = new CollectorRegistry($adapter);
