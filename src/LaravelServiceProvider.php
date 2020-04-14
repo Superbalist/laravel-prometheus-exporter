@@ -2,7 +2,7 @@
 
 namespace Superbalist\LaravelPrometheusExporter;
 
-class LaravelPrometheusServiceProvider extends PrometheusServiceProvider
+class LaravelServiceProvider extends PrometheusServiceProvider
 {
     /**
      * Perform post-registration booting of services.

@@ -2,7 +2,7 @@
 
 namespace Superbalist\LaravelPrometheusExporter;
 
-class LumenPrometheusServiceProvider extends PrometheusServiceProvider
+class LumenServiceProvider extends PrometheusServiceProvider
 {
     /**
      * Load routes.
