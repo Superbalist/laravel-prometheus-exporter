@@ -7,19 +7,17 @@ use Illuminate\Support\ServiceProvider;
 use Prometheus\CollectorRegistry;
 use Prometheus\Storage\Adapter;
 
-class PrometheusServiceProvider extends ServiceProvider
+abstract class PrometheusServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/prometheus.php' => config_path('prometheus.php'),
-        ]);
+        $this->mergeConfigFrom(__DIR__ . '/../config/prometheus.php', 'prometheus');
 
         if (config('prometheus.metrics_route_enabled')) {
-            $this->loadRoutesFrom(__DIR__ . '/routes.php');
+            $this->loadRoutes();
         }
 
         $exporter = $this->app->make(PrometheusExporter::class); /* @var PrometheusExporter $exporter */
@@ -30,12 +28,15 @@ class PrometheusServiceProvider extends ServiceProvider
     }
 
     /**
+     * Load routes.
+     */
+    abstract protected function loadRoutes();
+
+    /**
      * Register bindings in the container.
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/prometheus.php', 'prometheus');
-
         $this->app->singleton(PrometheusExporter::class, function ($app) {
             $adapter = $app['prometheus.storage_adapter'];
             $prometheus = new CollectorRegistry($adapter);
