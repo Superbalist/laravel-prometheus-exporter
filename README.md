@@ -23,7 +23,7 @@ Register the service provider in app.php
 ```php
 'providers' => [
     // ...
-    Superbalist\LaravelPrometheusExporter\LaravelServiceProvider::class,
+    Superbalist\LaravelPrometheusExporter\PrometheusServiceProvider::class,
 ]
 ```
 
@@ -37,7 +37,7 @@ Register the facade in app.php
 
 #### Lumen
 ```php
-$app->register(Superbalist\LaravelPrometheusExporter\LumenServiceProvider::class);
+$app->register(Superbalist\LaravelPrometheusExporter\LumenPrometheusServiceProvider::class);
 ```
 
 ## Configuration

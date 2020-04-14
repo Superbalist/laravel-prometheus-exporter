@@ -7,14 +7,16 @@ use Illuminate\Support\ServiceProvider;
 use Prometheus\CollectorRegistry;
 use Prometheus\Storage\Adapter;
 
-abstract class PrometheusServiceProvider extends ServiceProvider
+class PrometheusServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/prometheus.php', 'prometheus');
+        $this->publishFiles();
+        $this->mergeConfigs();
+        $this->loadRoutes();
 
         if (config('prometheus.metrics_route_enabled')) {
             $this->loadRoutes();
@@ -28,9 +30,30 @@ abstract class PrometheusServiceProvider extends ServiceProvider
     }
 
     /**
+     * Merge configs.
+     */
+    protected function mergeConfigs()
+    {
+        $this->mergeConfigFrom(__DIR__ . '/../config/prometheus.php', 'prometheus');
+    }
+
+    /**
+     * Publish files.
+     */
+    protected function publishFiles()
+    {
+        $this->publishes([
+            __DIR__ . '/../config/prometheus.php' => config_path('prometheus.php'),
+        ]);
+    }
+
+    /**
      * Load routes.
      */
-    abstract protected function loadRoutes();
+    protected function loadRoutes()
+    {
+        $this->loadRoutesFrom(__DIR__ . '/laravel_routes.php');
+    }
 
     /**
      * Register bindings in the container.

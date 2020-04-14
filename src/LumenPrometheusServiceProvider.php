@@ -2,8 +2,16 @@
 
 namespace Superbalist\LaravelPrometheusExporter;
 
-class LumenServiceProvider extends PrometheusServiceProvider
+class LumenPrometheusServiceProvider extends PrometheusServiceProvider
 {
+    /**
+     * Publish files.
+     */
+    protected function publishFiles()
+    {
+        // do nothing
+    }
+
     /**
      * Load routes.
      */
