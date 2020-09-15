@@ -1,5 +1,5 @@
 {
-  "name": "superbalist/laravel-prometheus-exporter",
+  "name": "futurematt/laravel-prometheus-exporter",
   "description": "A prometheus exporter for Laravel",
   "license": "MIT",
   "authors": [
@@ -9,10 +9,10 @@
     }
   ],
   "require": {
-    "php": ">=5.6.0",
-    "illuminate/support": "^5.3 || ^6.0 || ^7.0",
-    "illuminate/routing": "^5.3 || ^6.0 || ^7.0",
-    "jimdo/prometheus_client_php": "^0.9.0"
+    "php": ">=7.2.0",
+    "illuminate/support": "^5.3 || ^6.0 || ^7.0 || ^8.0",
+    "illuminate/routing": "^5.3 || ^6.0 || ^7.0 || ^8.0",
+    "endclothing/prometheus_client_php": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -34,7 +34,7 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.5",
-    "mockery/mockery": "^0.9.5"
+    "phpunit/phpunit": "^8",
+    "mockery/mockery": "^1.3"
   }
 }
