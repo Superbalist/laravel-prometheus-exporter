@@ -1,17 +1,12 @@
 <?php
 
-/** @var \Illuminate\Routing\Route $route */
-$route = Route::get(
-    config('prometheus.metrics_route_path'),
-    \Superbalist\LaravelPrometheusExporter\MetricsController::class . '@getMetrics'
-);
+/** @var \Illuminate\Routing\Route|\Laravel\Lumen\Routing\Router $route */
+$route = app('router');
 
-if ($name = config('prometheus.metrics_route_name')) {
-    $route->name($name);
-}
+$params = array_filter([
+    'uses' => \Superbalist\LaravelPrometheusExporter\MetricsController::class . '@getMetrics',
+    'as' =>  config('prometheus.metrics_route_name'),
+    'middleware' =>  config('prometheus.metrics_route_middleware'),
+]);
 
-$middleware = config('prometheus.metrics_route_middleware');
-
-if ($middleware) {
-    $route->middleware($middleware);
-}
+$route->get(config('prometheus.metrics_route_path'), $params);

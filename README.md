@@ -17,6 +17,8 @@ This package is a wrapper bridging [jimdo/prometheus_client_php](https://github.
 composer require superbalist/laravel-prometheus-exporter
 ```
 
+## Laravel
+
 Register the service provider in app.php
 ```php
 'providers' => [
@@ -31,6 +33,19 @@ Register the facade in app.php
     // ...
     'Prometheus' => Superbalist\LaravelPrometheusExporter\PrometheusFacade::class,
 ]
+```
+
+## Lumen
+Register the service provider in boostrap/app.php
+```php
+$app->register(Superbalist\LaravelPrometheusExporter\PrometheusServiceProvider::class);
+```
+
+If you want to register the facade, in boostrap/app, replece the line with `$app->withFacades();` with the following:
+```php
+$app->withFacades(true, [
+    Superbalist\LaravelPrometheusExporter\PrometheusFacade::class => 'Prometheus',
+]);
 ```
 
 ## Configuration

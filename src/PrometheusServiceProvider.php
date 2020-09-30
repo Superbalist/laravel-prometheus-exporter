@@ -14,18 +14,23 @@ class PrometheusServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/prometheus.php' => config_path('prometheus.php'),
-        ]);
+        if (function_exists('config_path')) {
+            $this->publishes([
+                __DIR__ . '/../config/prometheus.php' => config_path('prometheus.php'),
+            ]);
+        }
 
         if (config('prometheus.metrics_route_enabled')) {
             $this->loadRoutesFrom(__DIR__ . '/routes.php');
         }
 
-        $exporter = $this->app->make(PrometheusExporter::class); /* @var PrometheusExporter $exporter */
+        /* @var PrometheusExporter $exporter */
+        $exporter = $this->app->make(PrometheusExporter::class);
+
         foreach (config('prometheus.collectors') as $class) {
-            $collector = $this->app->make($class);
-            $exporter->registerCollector($collector);
+            $exporter->registerCollector(
+                $this->app->make($class)
+            );
         }
     }
 
@@ -48,7 +53,8 @@ class PrometheusServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(Adapter::class, function ($app) {
-            $factory = $app['prometheus.storage_adapter_factory']; /** @var StorageAdapterFactory $factory */
+            $factory = $app['prometheus.storage_adapter_factory'];
+            /** @var StorageAdapterFactory $factory */
             $driver = config('prometheus.storage_adapter');
             $configs = config('prometheus.storage_adapters');
             $config = Arr::get($configs, $driver, []);
