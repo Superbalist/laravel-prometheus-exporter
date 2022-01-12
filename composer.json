@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Superbalist\\LaravelPrometheusExporter\\": "src/",
+      "Healthengine\\LaravelPrometheusExporter\\": "src/",
       "Tests\\": "tests/"
     }
   },
@@ -27,10 +27,10 @@
     },
     "laravel": {
       "providers": [
-        "Superbalist\\LaravelPrometheusExporter\\PrometheusServiceProvider"
+        "Healthengine\\LaravelPrometheusExporter\\PrometheusServiceProvider"
       ],
       "aliases": {
-        "Prometheus": "Superbalist\\LaravelPrometheusExporter\\PrometheusFacade"
+        "Prometheus": "Healthengine\\LaravelPrometheusExporter\\PrometheusFacade"
       }
     }
   },
