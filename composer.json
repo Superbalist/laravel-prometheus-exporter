@@ -2,6 +2,7 @@
   "name": "healthengine/laravel-prometheus-exporter",
   "description": "A prometheus exporter for Laravel",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
@@ -16,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Superbalist\\LaravelPrometheusExporter\\": "src/",
+      "Healthengine\\LaravelPrometheusExporter\\": "src/",
       "Tests\\": "tests/"
     }
   },
@@ -26,10 +27,10 @@
     },
     "laravel": {
       "providers": [
-        "Superbalist\\LaravelPrometheusExporter\\PrometheusServiceProvider"
+        "Healthengine\\LaravelPrometheusExporter\\PrometheusServiceProvider"
       ],
       "aliases": {
-        "Prometheus": "Superbalist\\LaravelPrometheusExporter\\PrometheusFacade"
+        "Prometheus": "Healthengine\\LaravelPrometheusExporter\\PrometheusFacade"
       }
     }
   },
