@@ -15,8 +15,8 @@
   ],
   "require": {
     "php": "^7.4 || ^8.0",
-    "illuminate/routing": "^8.50",
-    "illuminate/support": "^8.50",
+    "illuminate/routing": "^7.0 || ^8.50",
+    "illuminate/support": "^7.0 || ^8.50",
     "promphp/prometheus_client_php": "^2.0"
   },
   "autoload": {
@@ -37,22 +37,17 @@
   },
   "require-dev": {
     "mockery/mockery": "^1.5",
-    "orchestra/testbench": "^6.3",
+    "orchestra/testbench": "^5.8 || ^6.23",
     "phpunit/phpunit": "^9.4"
   },
   "config": {
     "sort-packages": true
   },
   "suggest": {
-    "ext-apcu": "To use the APCu driver."
+    "ext-apcu": "To use the APCu driver.",
+    "ext-redis": "To use the Redis driver."
   },
   "scripts": {
-    "phpunit": "@php vendor/bin/phpunit",
-    "test": [
-      "@composer update --prefer-lowest",
-      "@composer phpunit",
-      "@composer update",
-      "@composer phpunit"
-    ]
+    "test": "@php vendor/bin/phpunit"
   }
 }
