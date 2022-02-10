@@ -1,8 +1,9 @@
 <?php
 
-namespace Superbalist\LaravelPrometheusExporter;
+namespace Healthengine\LaravelPrometheusExporter;
 
 use InvalidArgumentException;
+use Prometheus\Exception\StorageException;
 use Prometheus\Storage\Adapter;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;
@@ -17,6 +18,9 @@ class StorageAdapterFactory
      * @param array $config
      *
      * @return Adapter
+     *
+     * @throws InvalidArgumentException When value of `$driver` is not supported.
+     * @throws StorageException When using APCu driver and the extension is either not installed or not enabled.
      */
     public function make($driver, array $config = [])
     {

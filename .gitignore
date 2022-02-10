@@ -1,6 +1,5 @@
 .idea
+.phpunit.cache
 composer.lock
+phpunit.xml
 vendor
-bin
-coverage
-coverage.xml

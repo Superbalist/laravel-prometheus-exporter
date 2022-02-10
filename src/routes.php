@@ -1,9 +1,10 @@
 <?php
 
-/** @var \Illuminate\Routing\Route $route */
+use Illuminate\Support\Facades\Route;
+
 $route = Route::get(
     config('prometheus.metrics_route_path'),
-    \Superbalist\LaravelPrometheusExporter\MetricsController::class . '@getMetrics'
+    \Healthengine\LaravelPrometheusExporter\MetricsController::class . '@getMetrics'
 );
 
 if ($name = config('prometheus.metrics_route_name')) {

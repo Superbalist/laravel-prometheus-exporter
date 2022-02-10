@@ -3,11 +3,15 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use Prometheus\Exception\StorageException;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;
 use Prometheus\Storage\Redis;
-use Superbalist\LaravelPrometheusExporter\StorageAdapterFactory;
+use Healthengine\LaravelPrometheusExporter\StorageAdapterFactory;
 
+/**
+ * @covers \Healthengine\LaravelPrometheusExporter\StorageAdapterFactory
+ */
 class StorageAdapterFactoryTest extends TestCase
 {
     public function testMakeMemoryAdapter()
@@ -19,6 +23,14 @@ class StorageAdapterFactoryTest extends TestCase
 
     public function testMakeApcAdapter()
     {
+        if (!extension_loaded('apcu')) {
+            $this->markTestSkipped('APCu extension is not loaded');
+        }
+
+        if (!apcu_enabled()) {
+            $this->markTestSkipped('APCu is not enabled');
+        }
+
         $factory = new StorageAdapterFactory();
         $adapter = $factory->make('apc');
         $this->assertInstanceOf(APC::class, $adapter);

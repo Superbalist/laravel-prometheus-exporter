@@ -1,6 +1,6 @@
 <?php
 
-namespace Superbalist\LaravelPrometheusExporter;
+namespace Healthengine\LaravelPrometheusExporter;
 
 use InvalidArgumentException;
 use Prometheus\CollectorRegistry;
