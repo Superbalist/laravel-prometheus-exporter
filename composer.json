@@ -15,8 +15,8 @@
   ],
   "require": {
     "php": "^7.4 || ^8.0",
-    "illuminate/routing": "^7.0 || ^8.50",
-    "illuminate/support": "^7.0 || ^8.50",
+    "illuminate/routing": "^7.0 || ^8.0",
+    "illuminate/support": "^7.0 || ^8.0",
     "promphp/prometheus_client_php": "^2.0"
   },
   "autoload": {
