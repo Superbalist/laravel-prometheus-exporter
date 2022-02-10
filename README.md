@@ -2,7 +2,7 @@
 
 A prometheus exporter for Laravel.
 
-[![Build Status](https://img.shields.io/travis/healthengine/laravel-prometheus-exporter/master.svg?style=flat-square)](https://travis-ci.org/healthengine/laravel-prometheus-exporter)
+[![Build Status](https://img.shields.io/travis/healthengine/laravel-prometheus-exporter/master.svg?style=flat-square)](https://app.travis-ci.com/github/HealthEngineAU/laravel-prometheus-exporter)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Packagist Version](https://img.shields.io/packagist/v/healthengine/laravel-prometheus-exporter.svg?style=flat-square)](https://packagist.org/packages/healthengine/laravel-prometheus-exporter)
 [![Total Downloads](https://img.shields.io/packagist/dt/healthengine/laravel-prometheus-exporter.svg?style=flat-square)](https://packagist.org/packages/healthengine/laravel-prometheus-exporter)
