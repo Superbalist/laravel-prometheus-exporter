@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 2022-03-15
+
+* Do not try to connect to Redis during service register
+
 ## 1.1.0 - 2022-02-18
 
 * Enable Laravel 9 compatability
