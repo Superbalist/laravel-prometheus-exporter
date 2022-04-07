@@ -9,7 +9,7 @@ A prometheus exporter for Laravel.
 [![Packagist Version](https://img.shields.io/packagist/v/superbalist/laravel-prometheus-exporter.svg?style=flat-square)](https://packagist.org/packages/superbalist/laravel-prometheus-exporter)
 [![Total Downloads](https://img.shields.io/packagist/dt/superbalist/laravel-prometheus-exporter.svg?style=flat-square)](https://packagist.org/packages/superbalist/laravel-prometheus-exporter)
 
-This package is a wrapper bridging [jimdo/prometheus_client_php](https://github.com/Jimdo/prometheus_client_php) into Laravel.
+This package is a wrapper bridging [promphp/prometheus_client_php](https://github.com/promphp/prometheus_client_php) into Laravel.
 
 ## Installation
 
