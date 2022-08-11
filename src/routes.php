@@ -13,5 +13,5 @@ if ($name = config('prometheus.metrics_route_name')) {
 $middleware = config('prometheus.metrics_route_middleware');
 
 if ($middleware) {
-    $route->middleware($middleware);
+    $route->middleware(explode(',', $middleware));
 }
