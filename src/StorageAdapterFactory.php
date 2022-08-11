@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use Prometheus\Storage\Adapter;
 use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;
-use Prometheus\Storage\Redis;
+use Superbalist\LaravelPrometheusExporter\Storage\Redis;
 
 class StorageAdapterFactory
 {
