@@ -18,6 +18,8 @@ composer require superbalist/laravel-prometheus-exporter
 ```
 
 Register the service provider in app.php
+
+#### Laravel
 ```php
 'providers' => [
     // ...
@@ -31,6 +33,11 @@ Register the facade in app.php
     // ...
     'Prometheus' => Superbalist\LaravelPrometheusExporter\PrometheusFacade::class,
 ]
+```
+
+#### Lumen
+```php
+$app->register(Superbalist\LaravelPrometheusExporter\LumenPrometheusServiceProvider::class);
 ```
 
 ## Configuration

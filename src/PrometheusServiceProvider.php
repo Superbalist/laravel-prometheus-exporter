@@ -14,12 +14,11 @@ class PrometheusServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/../config/prometheus.php' => config_path('prometheus.php'),
-        ]);
+        $this->publishFiles();
+        $this->loadRoutes();
 
         if (config('prometheus.metrics_route_enabled')) {
-            $this->loadRoutesFrom(__DIR__ . '/routes.php');
+            $this->loadRoutes();
         }
 
         $exporter = $this->app->make(PrometheusExporter::class); /* @var PrometheusExporter $exporter */
@@ -27,6 +26,24 @@ class PrometheusServiceProvider extends ServiceProvider
             $collector = $this->app->make($class);
             $exporter->registerCollector($collector);
         }
+    }
+
+    /**
+     * Publish files.
+     */
+    protected function publishFiles()
+    {
+        $this->publishes([
+            __DIR__ . '/../config/prometheus.php' => config_path('prometheus.php'),
+        ]);
+    }
+
+    /**
+     * Load routes.
+     */
+    protected function loadRoutes()
+    {
+        $this->loadRoutesFrom(__DIR__ . '/laravel_routes.php');
     }
 
     /**
