@@ -144,7 +144,7 @@ $gauge->decBy(2, ['staff']);
 $gauge->set(36, ['staff']);
 
 // retrieve a gauge
-$counter = $exporter->getGauge('users_online_total');
+$gauge = $exporter->getGauge('users_online_total');
 
 // create a histogram
 $histogram = $exporter->registerHistogram(
@@ -169,5 +169,5 @@ $histogram = $exporter->registerHistogram(
 $histogram->observe(5.0, ['GET']);
 
 // retrieve a histogram
-$counter = $exporter->getHistogram('response_time_seconds');
+$histogram = $exporter->getHistogram('response_time_seconds');
 ```
